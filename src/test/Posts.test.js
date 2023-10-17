@@ -29,7 +29,7 @@ test("it fetches and displays data", async () => {
   // Wait for asynchronous operations to complete (in this case, data fetching)
   await waitFor(() => {
     // Check that the component rendered the expected content
-    expect(screen.getByText("Posts from JSONPlaceholder")).toBeInTheDocument();
+    expect(screen.getByText("POSTS")).toBeInTheDocument();
     expect(screen.getAllByRole("listitem")).toHaveLength(2);
 
     // Check that each item in the sample data is displayed

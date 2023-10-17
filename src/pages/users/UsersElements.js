@@ -30,8 +30,14 @@ export const UserBox = styled.div`
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
   }
 `;
+export const Usersheader = styled.div`
+  display: flex;
+  gap: 50%;
+`;
+
 export const DetailsDiv = styled.div`
   display: flex;
+  gap: 5px;
 `;
 export const UserDetails = styled.p`
   font-size: 16px;
@@ -43,4 +49,8 @@ export const UsersItems = styled.ol`
 `;
 export const Userslists = styled.li`
   position: relative;
+`;
+
+export const UserPosts = styled.div`
+  color: blue;
 `;

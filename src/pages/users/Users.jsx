@@ -1,12 +1,17 @@
 // Import necessary modules and functions from React.
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import Lottie from "lottie-react";
+import spinner from "../../components/animations/loading.json";
 import {
   DetailsDiv,
   UserBox,
   UserDetails,
+  UserPosts,
   UsersContainer,
   UsersHeader,
   UsersItems,
+  Usersheader,
   Userslists,
 } from "./UsersElements";
 
@@ -15,6 +20,7 @@ const Users = () => {
   // Define state variables 'data' and 'error' using the 'useState' hook.
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   // Use the 'useEffect' hook to perform side effects in the component.
   useEffect(() => {
@@ -34,9 +40,11 @@ const Users = () => {
         // Parse the response JSON data and set it to the 'data' state.
         const data = await response.json();
         setData(data);
+        setIsLoading(false); // Set loading to false when data is fetched.
       } catch (error) {
         // Handle any errors that occur during the fetch and set the 'error' state.
         setError(error);
+        setIsLoading(false); // Set loading to false if an error occurs.
       }
     };
 
@@ -46,9 +54,20 @@ const Users = () => {
 
   // If there's an error, render a message displaying the error.
   if (error) {
-    return <div>Error: {error.message}</div>;
+    return <UsersContainer>Error: {error.message}</UsersContainer>;
+  }
+  if (isLoading) {
+    // Display a loading message or loading spinner while data is being fetched.
+    return (
+      <UsersContainer>
+        <Lottie animationData={spinner} style={{ height: "150px" }} />
+      </UsersContainer>
+    );
   }
 
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
   // Render the fetched data as a list of users if no error occurred.
   return (
     <UsersContainer>
@@ -58,7 +77,12 @@ const Users = () => {
           // Render each post with a unique 'key' and its 'title'.
           <UserBox key={user.id}>
             <Userslists>
-              <h1> User {user.id}</h1>
+              <Usersheader>
+                <h3> USER ID: {user.id}</h3>{" "}
+                <UserPosts>
+                  <Link to={`/user/${user.id}/posts`}>USER POSTS</Link>
+                </UserPosts>
+              </Usersheader>
               <DetailsDiv>
                 <UserDetails>Full Name: </UserDetails> <p> {user.name}</p>
               </DetailsDiv>

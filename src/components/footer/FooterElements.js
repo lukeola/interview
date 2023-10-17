@@ -42,9 +42,9 @@ export const ColumnIcons = styled.div`
 export const ColumnHeading = styled.div`
   width: 100%;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 24px;
   line-height: 26px;
-  color: goldenrod;
+  color: #54beda;
   text-align: center;
 
   @media screen and (max-width: 890px) {

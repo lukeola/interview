@@ -53,6 +53,18 @@ const Navbar = () => {
           <Link to="/comments" className={color ? "comments-bg" : "comments"}>
             <li>Comments</li>
           </Link>
+
+          <Link to="/albums" className={color ? "comments-bg" : "comments"}>
+            <li>Albums</li>
+          </Link>
+
+          <Link to="/photos" className={color ? "comments-bg" : "comments"}>
+            <li>Photos</li>
+          </Link>
+
+          <Link to="/todos" className={color ? "comments-bg" : "comments"}>
+            <li>Todos</li>
+          </Link>
         </ul>
         <button
           className={color ? "mobile-menu-icon-bg" : "mobile-menu-icon"}

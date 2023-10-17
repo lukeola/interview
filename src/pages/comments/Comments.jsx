@@ -1,7 +1,10 @@
 // Import necessary modules and functions from React.
 import React, { useState, useEffect } from "react";
+import Lottie from "lottie-react";
+import spinner from "../../components/animations/loading.json";
 import {
   CommentsContainer,
+  CommentsHeader,
   CommentsItems,
   Commentslists,
 } from "./CommentsElements";
@@ -11,6 +14,7 @@ const Comments = () => {
   // Define state variables 'data' and 'error' using the 'useState' hook.
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   // Use the 'useEffect' hook to perform side effects in the component.
   useEffect(() => {
@@ -30,9 +34,11 @@ const Comments = () => {
         // Parse the response JSON data and set it to the 'data' state.
         const data = await response.json();
         setData(data);
+        setIsLoading(false); // Set loading to false when data is fetched.
       } catch (error) {
         // Handle any errors that occur during the fetch and set the 'error' state.
         setError(error);
+        setIsLoading(false); // Set loading to false if an error occurs.
       }
     };
 
@@ -42,20 +48,36 @@ const Comments = () => {
 
   // If there's an error, render a message displaying the error.
   if (error) {
-    return <div>Error: {error.message}</div>;
+    return <CommentsContainer>Error: {error.message}</CommentsContainer>;
   }
-
+  if (isLoading) {
+    // Display a loading message or loading spinner while data is being fetched.
+    return (
+      <CommentsContainer>
+        <Lottie animationData={spinner} style={{ height: "150px" }} />
+      </CommentsContainer>
+    );
+  }
   // Render the fetched data as a list of posts if no error occurred.
   return (
     <CommentsContainer>
-      <h2>COMMENTS</h2>
+      <CommentsHeader>ALL COMMENTS</CommentsHeader>
       <CommentsItems>
         {data.map((comment) => (
           // Render each post with a unique 'key' and its 'title'.
           <Commentslists key={comment.id}>
-            <p>{comment.name}</p>
-            <p>{comment.email}</p>
-            <p>{comment.body}</p>
+            <p>
+              <strong>Comment ID:</strong> {comment.postId}
+            </p>
+            <p>
+              <strong>Subject:</strong> {comment.name}
+            </p>
+            <p>
+              <strong>Author Email:</strong> {comment.email}
+            </p>
+            <p>
+              <strong>Comment:</strong> {comment.body}
+            </p>
           </Commentslists>
         ))}
       </CommentsItems>

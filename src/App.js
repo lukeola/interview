@@ -7,6 +7,8 @@ import Users from "./pages/users/Users";
 import Comments from "./pages/comments/Comments";
 import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
+import UserPosts from "./pages/users/UserPosts";
+import PostComments from "./pages/posts/PostComments";
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
           <Route path="/posts" element={<Posts />} />
           <Route path="/users" element={<Users />} />
           <Route path="/comments" element={<Comments />} />
+          <Route path="/user/:userId/posts" element={<UserPosts />} />
+          <Route path="/posts/:postId/comments" element={<PostComments />} />
         </Routes>
         <Footer />
       </div>

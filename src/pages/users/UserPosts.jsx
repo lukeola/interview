@@ -52,7 +52,7 @@ const UserPosts = () => {
 
   return (
     <PostsContainer>
-      <PostHeader>ALL POSTS BY USIER ID: {userId}</PostHeader>
+      <PostHeader>ALL POSTS BY USER &nbsp; {userId}</PostHeader>
       <ul>
         {userPosts.map((post) => (
           <Postlists key={post.id}>

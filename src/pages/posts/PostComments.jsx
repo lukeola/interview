@@ -53,7 +53,7 @@ const PostComments = () => {
 
   return (
     <CommentsContainer>
-      <CommentsHeader>Comments for Post ID: {postId}</CommentsHeader>
+      <CommentsHeader>Comments for Post &nbsp; {postId}</CommentsHeader>
       <CommentsItems>
         {comments.map((comment) => (
           <Commentslists key={comment.id}>

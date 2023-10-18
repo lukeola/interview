@@ -4,17 +4,34 @@ export const TodosContainer = styled.div`
   width: 100%;
   background-color: rgba(255, 250, 250, 0.7);
   position: relative;
-  padding-top: 10rem;
-  padding: 10rem 5rem;
+  padding: 10% 5%;
   display: flex;
   flex-direction: column;
 `;
 
 export const TodosHeader = styled.h1`
   color: black;
-  font: 2rem;
+  font-size: 24px;
   text-align: center;
+  padding-top: 6rem;
   padding-bottom: 3rem;
+
+  @media (min-width: 768px) {
+    /* Adjust the styles for screens with a minimum width of 768px */
+
+    padding-bottom: 3rem;
+  }
+`;
+
+export const TodoStatus = styled.div`
+  display: column;
+  gap: 5%;
+
+  @media (min-width: 768px) {
+    /* Adjust the styles for screens with a minimum width of 768px */
+
+    display: flex;
+  }
 `;
 
 export const TodosItems = styled.ol`

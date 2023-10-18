@@ -8,6 +8,7 @@ import {
   Todoslists,
   TodosContainer,
   TodosButton,
+  TodoStatus,
 } from "./TodosElements";
 
 const Todos = () => {
@@ -81,10 +82,10 @@ const Todos = () => {
   return (
     <TodosContainer>
       <TodosHeader>TODOS</TodosHeader>
-      <div style={{ display: "flex", gap: "2rem" }}>
+      <TodoStatus>
         <div>
           {/* Render completed todos */}
-          <h2 style={{ paddingBottom: "2rem" }}>Completed Todos:</h2>
+          <h2 style={{ paddingBottom: "5%" }}>Completed Todos:</h2>
           <TodosItems>
             {completedTodos.map((todo) => (
               <Todoslists key={todo.id}>
@@ -114,7 +115,7 @@ const Todos = () => {
             ))}
           </TodosItems>
         </div>
-      </div>
+      </TodoStatus>
     </TodosContainer>
   );
 };

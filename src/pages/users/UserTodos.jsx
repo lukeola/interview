@@ -9,6 +9,7 @@ import {
   Todoslists,
   TodosContainer,
   TodosItems,
+  TodoStatus,
 } from "../todos/TodosElements";
 
 const UsersTodos = () => {
@@ -64,7 +65,7 @@ const UsersTodos = () => {
   return (
     <TodosContainer>
       <TodosHeader>ALL TODOS BY USER &nbsp; {userId}</TodosHeader>
-      <div style={{ display: "flex", gap: "2rem" }}>
+      <TodoStatus>
         <div>
           {/* Render completed todos */}
           <h2 style={{ paddingBottom: "2rem" }}>Completed Todos:</h2>
@@ -97,7 +98,7 @@ const UsersTodos = () => {
             ))}
           </TodosItems>
         </div>
-      </div>
+      </TodoStatus>
     </TodosContainer>
   );
 };

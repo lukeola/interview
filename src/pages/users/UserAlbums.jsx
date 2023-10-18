@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
+import Lottie from "lottie-react";
+import spinner from "../../components/animations/loading.json";
 import {
   AlbumsButton,
   AlbumsHeader,
   AlbumsTitle,
   Albumslists,
   AlbumsContainer,
+  AlbumsItems,
 } from "../albums/AlbumElements";
 
 const UserAlbums = () => {
@@ -38,7 +42,11 @@ const UserAlbums = () => {
   }, [userId]);
 
   if (isLoading) {
-    return <p>Loading user Albums...</p>;
+    return (
+      <AlbumsContainer>
+        <Lottie animationData={spinner} style={{ height: "150px" }} />
+      </AlbumsContainer>
+    );
   }
 
   if (error) {
@@ -53,18 +61,24 @@ const UserAlbums = () => {
   return (
     <AlbumsContainer>
       <AlbumsHeader>ALL ALBUMS BY USER &nbsp; {userId}</AlbumsHeader>
-      <ul>
-        {userAlbums.map((album) => (
-          <Albumslists key={album.id}>
-            <p>Create by USER ID: {album.userId}</p>
-            <AlbumsTitle>{album.title}</AlbumsTitle>
-            <p>{album.body}</p>
-            <AlbumsButton onClick={() => handleDeleteAlbum(album.id)}>
-              Delete Album
-            </AlbumsButton>
+      <AlbumsItems>
+        {userAlbums.map((albums) => (
+          // Render each Albums with a unique 'key' and its 'title'.
+          <Albumslists key={albums.id}>
+            <p>Create by USER ID: {albums.userId}</p>
+            <AlbumsTitle>{albums.title}</AlbumsTitle>
+            <div style={{ display: "flex", gap: "20px", paddingTop: "20px" }}>
+              <AlbumsButton onClick={() => handleDeleteAlbum(albums.id)}>
+                Delete Albums
+              </AlbumsButton>
+
+              <Link to={`/albums/${albums.id}/photos`}>
+                <AlbumsButton>View Photos</AlbumsButton>
+              </Link>
+            </div>
           </Albumslists>
         ))}
-      </ul>
+      </AlbumsItems>
     </AlbumsContainer>
   );
 };

@@ -70,7 +70,7 @@ const AlbumPhotos = () => {
             <div style={{ width: "50%" }}>
               <img
                 src={photo.url}
-                alt="image"
+                alt=""
                 style={{ height: "50%", width: "50%", objectFit: "contain" }}
               />
             </div>

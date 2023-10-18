@@ -16,7 +16,6 @@ import {
 const Albumss = () => {
   // Define state variables 'data' and 'error' using the 'useState' hook.
   const [data, setData] = useState([]);
-  const [userAlbums, setUserAlbums] = useState([]);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import Lottie from "lottie-react";
+import spinner from "../../components/animations/loading.json";
 import {
   PostButton,
   PostHeader,
@@ -38,7 +40,11 @@ const UserPosts = () => {
   }, [userId]);
 
   if (isLoading) {
-    return <p>Loading user posts...</p>;
+    return (
+      <PostsContainer>
+        <Lottie animationData={spinner} style={{ height: "150px" }} />
+      </PostsContainer>
+    );
   }
 
   if (error) {

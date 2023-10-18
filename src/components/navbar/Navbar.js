@@ -42,12 +42,12 @@ const Navbar = () => {
             <li>Home</li>
           </Link>
 
-          <Link to="/posts" className={color ? "posts-bg" : "posts"}>
-            <li>Posts</li>
-          </Link>
-
           <Link to="/users" className={color ? "users-bg" : "users"}>
             <li>Users</li>
+          </Link>
+
+          <Link to="/posts" className={color ? "posts-bg" : "posts"}>
+            <li>Posts</li>
           </Link>
 
           <Link to="/comments" className={color ? "comments-bg" : "comments"}>

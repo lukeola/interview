@@ -32,16 +32,23 @@ export const UserBox = styled.div`
 `;
 export const Usersheader = styled.div`
   display: flex;
-  gap: 10%;
+  border: 1px solid;
+  background: linear-gradient(135deg, #0074e4, #00a7e1);
+  color: #fff;
+  padding: 20px;
+  justify-content: space-between;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 `;
 
 export const DetailsDiv = styled.div`
   display: flex;
   gap: 5px;
+  margin-top: 8px;
 `;
 export const UserDetails = styled.p`
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 18px;
+  font-weight: 600;
 `;
 export const UsersItems = styled.ol`
   position: relative;
@@ -52,5 +59,7 @@ export const Userslists = styled.li`
 `;
 
 export const UserLinks = styled.div`
-  color: blue;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
 `;

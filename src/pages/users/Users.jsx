@@ -8,7 +8,6 @@ import {
   UserBox,
   UserDetails,
   UserLinks,
-  UserPosts,
   UsersContainer,
   UsersHeader,
   UsersItems,
@@ -79,15 +78,24 @@ const Users = () => {
           <UserBox key={user.id}>
             <Userslists>
               <Usersheader>
-                <h3> USER ID: {user.id}</h3>{" "}
+                <UserLinks> USER &nbsp; {user.id}</UserLinks>
                 <UserLinks>
-                  <Link to={`/user/${user.id}/posts`}> POSTS</Link>
+                  <Link to={`/user/${user.id}/posts`} style={{ color: "#fff" }}>
+                    POSTS
+                  </Link>
                 </UserLinks>
                 <UserLinks>
-                  <Link to={`/user/${user.id}/todos`}> TODOS</Link>
+                  <Link to={`/user/${user.id}/todos`} style={{ color: "#fff" }}>
+                    TODOS
+                  </Link>
                 </UserLinks>
                 <UserLinks>
-                  <Link to={`/user/${user.id}/albums`}> ALBUMS</Link>
+                  <Link
+                    to={`/user/${user.id}/albums`}
+                    style={{ color: "#fff" }}
+                  >
+                    ALBUMS
+                  </Link>
                 </UserLinks>
               </Usersheader>
               <DetailsDiv>

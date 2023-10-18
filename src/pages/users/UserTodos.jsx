@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import Lottie from "lottie-react";
+import spinner from "../../components/animations/loading.json";
 import {
   TodosButton,
   TodosHeader,
@@ -39,7 +41,11 @@ const UsersTodos = () => {
   }, [userId]);
 
   if (isLoading) {
-    return <p>Loading user Todos...</p>;
+    return (
+      <TodosContainer>
+        <Lottie animationData={spinner} style={{ height: "150px" }} />
+      </TodosContainer>
+    );
   }
 
   if (error) {

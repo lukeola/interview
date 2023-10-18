@@ -32,7 +32,7 @@ export const UserBox = styled.div`
 `;
 export const Usersheader = styled.div`
   display: flex;
-  gap: 50%;
+  gap: 10%;
 `;
 
 export const DetailsDiv = styled.div`
@@ -51,6 +51,6 @@ export const Userslists = styled.li`
   position: relative;
 `;
 
-export const UserPosts = styled.div`
+export const UserLinks = styled.div`
   color: blue;
 `;

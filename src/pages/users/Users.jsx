@@ -7,6 +7,7 @@ import {
   DetailsDiv,
   UserBox,
   UserDetails,
+  UserLinks,
   UserPosts,
   UsersContainer,
   UsersHeader,
@@ -79,9 +80,15 @@ const Users = () => {
             <Userslists>
               <Usersheader>
                 <h3> USER ID: {user.id}</h3>{" "}
-                <UserPosts>
-                  <Link to={`/user/${user.id}/posts`}>USER POSTS</Link>
-                </UserPosts>
+                <UserLinks>
+                  <Link to={`/user/${user.id}/posts`}> POSTS</Link>
+                </UserLinks>
+                <UserLinks>
+                  <Link to={`/user/${user.id}/todos`}> TODOS</Link>
+                </UserLinks>
+                <UserLinks>
+                  <Link to={`/user/${user.id}/albums`}> ALBUMS</Link>
+                </UserLinks>
               </Usersheader>
               <DetailsDiv>
                 <UserDetails>Full Name: </UserDetails> <p> {user.name}</p>
